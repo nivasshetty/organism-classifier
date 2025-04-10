@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request # type: ignore
+from flask import Flask, render_template, request  # type: ignore
 
 app = Flask(__name__)
 
@@ -33,6 +33,4 @@ def classify():
     return render_template("index.html", result=result, image_url=image_url)
 
 if __name__ == "__main__":
-    app.run(debug=True)
-app.run(host="192.168.1.100", port=5000, debug=True)
-
+    app.run(host="0.0.0.0", port=5000, debug=True)

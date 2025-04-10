@@ -24,7 +24,7 @@ def classify():
                 result = "Plantae"
                 image_url = "https://i.pinimg.com/originals/c0/48/04/c04804cab901247074730a2d5833d6de.jpg"
             elif decay == "yes":
-                result = "Fungii"
+                result = "Fungi"
                 image_url = "https://image.slideserve.com/1429464/kingdom-fungi-l.jpg"
             else:
                 result = "Animalia"

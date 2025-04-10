@@ -21,7 +21,7 @@ def classify():
                 image_url = "http://image.slidesharecdn.com/plant-kingdom-1225607378783598-8/95/plant-kingdom-classification-3-728.jpg?cb=1279768732"
         else:
             if photosynthesis == "yes":
-                result = "Plantae"
+                result = "Plantaee"
                 image_url = "https://i.pinimg.com/originals/c0/48/04/c04804cab901247074730a2d5833d6de.jpg"
             elif decay == "yes":
                 result = "Fungi"

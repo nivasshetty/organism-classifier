@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Organism Classifier</title>
+  <style>
+    body {
+      background: url("https://i.pinimg.com/736x/17/de/5e/17de5e2ec4a1f00d0b237e3605ba6db0.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      width: 90%;
+      max-width: 450px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #2e7d32;
+    }
+
+    .question {
+      text-align: left;
+      margin: 15px 0;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #2e7d32;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #1b5e20;
+    }
+
+    .result {
+      margin-top: 20px;
+      background-color: #e8f5e9;
+      padding: 12px;
+      border-radius: 10px;
+      color: #2e7d32;
+      font-weight: bold;
+    }
+
+    .result img {
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #2e7d32;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+      display: none;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading .submit-btn,
+    .loading .question {
+      display: none;
+    }
+
+    .loading .loader {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+        width: 95%;
+      }
+      h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <form method="POST" class="container fade-in" onsubmit="this.classList.add('loading')">
+    <img src="https://i.pinimg.com/736x/35/aa/20/35aa2068e0ed2928ef89ed0aba40dee7.jpg" alt="Logo" class="logo">
+    <h2>Organism Classifier</h2>
+
+    <div class="question">
+      <label>Is the organism unicellular?</label><br>
+      <input type="radio" name="unicellular" value="yes" required> Yes
+      <input type="radio" name="unicellular" value="no"> No
+    </div>
+
+    <div class="question">
+      <label>Does it have a nucleus?</label><br>
+      <input type="radio" name="nucleus" value="yes" required> Yes
+      <input type="radio" name="nucleus" value="no"> No
+    </div>
+
+    <div class="question">
+      <label>Does it perform photosynthesis?</label><br>
+      <input type="radio" name="photosynthesis" value="yes" required> Yes
+      <input type="radio" name="photosynthesis" value="no"> No
+    </div>
+
+    <div class="question">
+      <label>Does it absorb nutrients from decay?</label><br>
+      <input type="radio" name="decay" value="yes" required> Yes
+      <input type="radio" name="decay" value="no"> No
+    </div>
+
+    <div class="loader"></div>
+    <button type="submit" class="submit-btn">Classify</button>
+
+    {% if result %}
+    <div class="result">
+      The organism belongs to: <strong>{{ result }}</strong>
+      {% if image_url %}
+        <img src="{{ image_url }}" alt="Classification image">
+      {% endif %}
+    </div>
+    {% endif %}
+  </form>
+</body>
+</html>

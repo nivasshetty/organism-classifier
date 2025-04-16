@@ -17,7 +17,7 @@ def classify():
                 result = "Protista"
                 image_url = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiLMJH_FLQLxzT1W2LI4vnH6YTNR3Cl2SWetrn2MrZyM7qaTe0Wj1ZhG2HQzaRNKitg-5a0Sch6zBZX4c29jXkGAk-kfq2qxiNDYe_ZMkM07GD2nwFivqwWORNyDxOIRoTqsHuUq1XCwTKhYLWX1AQ-F4Iy2j32RVeiMGJz-iC1tBeVyb7mZKPTWy7Qiv5/s1698/Kingom%20protista%20classification.jpg"
             else:
-                result = "Monera"
+                result = "Moneraa"
                 image_url = "http://image.slidesharecdn.com/plant-kingdom-1225607378783598-8/95/plant-kingdom-classification-3-728.jpg?cb=1279768732"
         else:
             if photosynthesis == "yes":

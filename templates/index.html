@@ -11,36 +11,27 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      height: 140vh;
       margin: 0;
-    }
-
-    .fade-in {
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .container {
       background-color: rgba(255, 255, 255, 0.95);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-      width: 90%;
-      max-width: 450px;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px whitesmoke;
+      width: 95%;
+      max-width: 500px;
       text-align: center;
     }
 
     .logo {
-      width: 100px;
+      width: 400px;
       margin-bottom: 10px;
     }
 
     h2 {
-      color: #2e7d32;
+      color: black;
     }
 
     .question {
@@ -48,28 +39,58 @@
       margin: 15px 0;
     }
 
-    .submit-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #2e7d32;
-      color: white;
+    .animated-btn {
+      position: relative;
+      display: inline-block;
+      padding: 12px 20px;
+      font-size: 16px;
       font-weight: bold;
+      color: white;
+      background-color: black;
       border: none;
-      border-radius: 8px;
+      border-radius: 30px;
       cursor: pointer;
+      overflow: hidden;
       transition: background-color 0.3s ease;
+      width: 100%;
     }
 
-    .submit-btn:hover {
-      background-color: #1b5e20;
+    .animated-btn::before {
+      content: "🧬 ";
+      content: "🤖 ";
+      content: "🌱";
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      transition: left 0.4s ease;
+    }
+
+    .animated-btn:hover::before {
+      left: 10px;
+    }
+    
+    .animated-btn::after {
+      content: "🧬 ";
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      transition: left 0.4s ease;
+    }
+
+    .animated-btn:hover {
+      background-color: whitesmoke;
     }
 
     .result {
       margin-top: 20px;
-      background-color: #e8f5e9;
+      background-color: whitesmoke;
       padding: 12px;
       border-radius: 10px;
-      color: #2e7d32;
+      color: black;
       font-weight: bold;
     }
 
@@ -77,31 +98,6 @@
       width: 100%;
       margin-top: 10px;
       border-radius: 10px;
-    }
-
-    .loader {
-      border: 6px solid #f3f3f3;
-      border-top: 6px solid #2e7d32;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 20px auto;
-      display: none;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .loading .submit-btn,
-    .loading .question {
-      display: none;
-    }
-
-    .loading .loader {
-      display: block;
     }
 
     @media (max-width: 600px) {
@@ -114,8 +110,8 @@
   </style>
 </head>
 <body>
-  <form method="POST" class="container fade-in" onsubmit="this.classList.add('loading')">
-    <img src="https://i.pinimg.com/736x/35/aa/20/35aa2068e0ed2928ef89ed0aba40dee7.jpg" alt="Logo" class="logo">
+  <form method="POST" class="container">
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230713160346/Five-Kingdom-Classification-(1).png" alt="Logo" class="logo">
     <h2>Organism Classifier</h2>
 
     <div class="question">
@@ -142,8 +138,7 @@
       <input type="radio" name="decay" value="no"> No
     </div>
 
-    <div class="loader"></div>
-    <button type="submit" class="submit-btn">Classify</button>
+    <button type="submit" class="animated-btn">CLASSIFY</button>
 
     {% if result %}
     <div class="result">

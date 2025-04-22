@@ -33,5 +33,5 @@ def classify():
     return render_template("index.html", result=result, image_url=image_url)
 
 if __name__ == "__main__":
-    app.run( port=5000, debug=True)
+    app.run( host = '0.0.0.0', port = int(os.eviron.get('PORT', 5000)))
 
